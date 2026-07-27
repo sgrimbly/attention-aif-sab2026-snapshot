@@ -1,0 +1,303 @@
+{
+  "layouts": [
+    {
+      "food_dist": 1,
+      "food_positions": [
+        26,
+        16
+      ],
+      "layout_id": "km_easy_00",
+      "max_target_dist": 1,
+      "sleep_positions": [
+        19
+      ],
+      "source_placement_seed": 0,
+      "start_edge_distance": 2,
+      "start_pos": 20,
+      "start_xy": [
+        2,
+        3
+      ],
+      "tier": "easy",
+      "water_dist": 1,
+      "water_positions": [
+        34,
+        14
+      ]
+    },
+    {
+      "food_dist": 1,
+      "food_positions": [
+        9,
+        17
+      ],
+      "layout_id": "km_easy_01",
+      "max_target_dist": 2,
+      "sleep_positions": [
+        2
+      ],
+      "source_placement_seed": 0,
+      "start_edge_distance": 1,
+      "start_pos": 8,
+      "start_xy": [
+        2,
+        1
+      ],
+      "tier": "easy",
+      "water_dist": 2,
+      "water_positions": [
+        27,
+        20
+      ]
+    },
+    {
+      "food_dist": 1,
+      "food_positions": [
+        9,
+        25
+      ],
+      "layout_id": "km_easy_02",
+      "max_target_dist": 1,
+      "sleep_positions": [
+        2
+      ],
+      "source_placement_seed": 2,
+      "start_edge_distance": 0,
+      "start_pos": 3,
+      "start_xy": [
+        3,
+        0
+      ],
+      "tier": "easy",
+      "water_dist": 1,
+      "water_positions": [
+        4,
+        8
+      ]
+    },
+    {
+      "food_dist": 2,
+      "food_positions": [
+        27,
+        10
+      ],
+      "layout_id": "km_easy_03",
+      "max_target_dist": 2,
+      "sleep_positions": [
+        14
+      ],
+      "source_placement_seed": 0,
+      "start_edge_distance": 2,
+      "start_pos": 15,
+      "start_xy": [
+        3,
+        2
+      ],
+      "tier": "easy",
+      "water_dist": 2,
+      "water_positions": [
+        3,
+        31
+      ]
+    },
+    {
+      "food_dist": 2,
+      "food_positions": [
+        8,
+        34
+      ],
+      "layout_id": "km_easy_04",
+      "max_target_dist": 2,
+      "sleep_positions": [
+        19
+      ],
+      "source_placement_seed": 0,
+      "start_edge_distance": 2,
+      "start_pos": 20,
+      "start_xy": [
+        2,
+        3
+      ],
+      "tier": "easy",
+      "water_dist": 2,
+      "water_positions": [
+        32,
+        4
+      ]
+    },
+    {
+      "food_dist": 2,
+      "food_positions": [
+        26,
+        4
+      ],
+      "layout_id": "km_easy_05",
+      "max_target_dist": 2,
+      "sleep_positions": [],
+      "source_placement_seed": 0,
+      "start_edge_distance": 2,
+      "start_pos": 14,
+      "start_xy": [
+        2,
+        2
+      ],
+      "tier": "easy",
+      "water_dist": 2,
+      "water_positions": [
+        16,
+        6
+      ]
+    },
+    {
+      "food_dist": 3,
+      "food_positions": [
+        8,
+        14
+      ],
+      "layout_id": "km_medium_00",
+      "max_target_dist": 3,
+      "sleep_positions": [],
+      "source_placement_seed": 0,
+      "start_edge_distance": 0,
+      "start_pos": 4,
+      "start_xy": [
+        4,
+        0
+      ],
+      "tier": "medium",
+      "water_dist": 3,
+      "water_positions": [
+        26,
+        17
+      ]
+    },
+    {
+      "food_dist": 4,
+      "food_positions": [
+        9,
+        16
+      ],
+      "layout_id": "km_medium_01",
+      "max_target_dist": 4,
+      "sleep_positions": [],
+      "source_placement_seed": 0,
+      "start_edge_distance": 0,
+      "start_pos": 12,
+      "start_xy": [
+        0,
+        2
+      ],
+      "tier": "medium",
+      "water_dist": 2,
+      "water_positions": [
+        25,
+        19
+      ]
+    },
+    {
+      "food_dist": 4,
+      "food_positions": [
+        9,
+        17
+      ],
+      "layout_id": "km_medium_02",
+      "max_target_dist": 4,
+      "sleep_positions": [],
+      "source_placement_seed": 0,
+      "start_edge_distance": 1,
+      "start_pos": 19,
+      "start_xy": [
+        1,
+        3
+      ],
+      "tier": "medium",
+      "water_dist": 3,
+      "water_positions": [
+        28,
+        22
+      ]
+    },
+    {
+      "food_dist": 1,
+      "food_positions": [
+        9,
+        15
+      ],
+      "layout_id": "km_far_00",
+      "max_target_dist": 6,
+      "sleep_positions": [],
+      "source_placement_seed": 0,
+      "start_edge_distance": 0,
+      "start_pos": 3,
+      "start_xy": [
+        3,
+        0
+      ],
+      "tier": "far",
+      "water_dist": 6,
+      "water_positions": [
+        25,
+        18
+      ]
+    },
+    {
+      "food_dist": 6,
+      "food_positions": [
+        10,
+        17
+      ],
+      "layout_id": "km_far_01",
+      "max_target_dist": 6,
+      "sleep_positions": [],
+      "source_placement_seed": 0,
+      "start_edge_distance": 0,
+      "start_pos": 18,
+      "start_xy": [
+        0,
+        3
+      ],
+      "tier": "far",
+      "water_dist": 4,
+      "water_positions": [
+        27,
+        22
+      ]
+    },
+    {
+      "food_dist": 4,
+      "food_positions": [
+        8,
+        3
+      ],
+      "layout_id": "km_far_02",
+      "max_target_dist": 6,
+      "sleep_positions": [],
+      "source_placement_seed": 3,
+      "start_edge_distance": 0,
+      "start_pos": 17,
+      "start_xy": [
+        5,
+        2
+      ],
+      "tier": "far",
+      "water_dist": 6,
+      "water_positions": [
+        6,
+        25
+      ]
+    }
+  ],
+  "metadata": {
+    "description": "Fixed 12-layout known-model competence bank for baseline survival comparisons. 5/12 easy-tier layouts (km_easy_00..04) carry one sleep tile to support the active fatigue lane (actinf_learning_fixed_layout_resource_first.json); the canonical paper1 inert lane sets inc_sleepdebt=0 so these tiles are homeostatically inert despite occupying a grid cell.",
+    "height": 6,
+    "mutation_enabled": false,
+    "n_food": 2,
+    "n_sleep": 0,
+    "n_water": 2,
+    "name": "paper1_known_model_competence_bank",
+    "paper1_profile": true,
+    "predator_enabled": false,
+    "tier_rule": "easy=max(food_dist,water_dist) in {1,2}; medium in {3,4}; far in {5,6}",
+    "width": 6
+  }
+}

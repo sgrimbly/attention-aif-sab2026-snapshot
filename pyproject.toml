@@ -1,0 +1,19 @@
+[project]
+name = "aif-paper1"
+version = "0.1.0"
+description = "Reproducibility snapshot for the Paper 1 SAB 2026 submission."
+requires-python = ">=3.10"
+dependencies = [
+    "inferactively-pymdp>=1.0.2",
+    "numpy>=1.24",
+    "jax>=0.9.0",
+    "jaxlib>=0.9.0",
+    "equinox>=0.13.4",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["aif_paper1*"]
