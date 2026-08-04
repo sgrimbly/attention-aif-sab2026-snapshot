@@ -1,24 +1,26 @@
 # Reproducibility snapshot — SAB 2026 Paper 1
 
-Anonymous reproducibility snapshot for the SAB 2026 submission. Contains
-all code, configurations, and layout banks needed to reproduce the survival
-experiments reported in the paper.
+Public reproducibility snapshot for *Interoceptive Attention as Dynamic
+Homeostatic Prioritization in a Foraging Agent*, accepted at SAB 2026. It
+contains the code, configurations, and layout banks needed to reproduce the
+survival experiments reported in the paper.
 
 ---
 
 ## Table of contents
 
 1. [Overview](#overview)
-2. [Requirements](#requirements)
-3. [Installation](#installation)
-4. [Quick start](#quick-start)
-5. [Reproducing the experiments](#reproducing-the-experiments)
-6. [Repository structure](#repository-structure)
-7. [Environment — AffectWorld](#environment--affectworld)
-8. [Agents](#agents)
-9. [Experimental configurations](#experimental-configurations)
-10. [Expected results and runtime](#expected-results-and-runtime)
-11. [Troubleshooting](#troubleshooting)
+2. [Supplementary material](#supplementary-material)
+3. [Requirements](#requirements)
+4. [Installation](#installation)
+5. [Quick start](#quick-start)
+6. [Reproducing the experiments](#reproducing-the-experiments)
+7. [Repository structure](#repository-structure)
+8. [Environment — AffectWorld](#environment--affectworld)
+9. [Agents](#agents)
+10. [Experimental configurations](#experimental-configurations)
+11. [Expected results and runtime](#expected-results-and-runtime)
+12. [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -38,6 +40,13 @@ Three experimental claims are made reproducible here:
 | `headline` | Attentional agent (`belief_argmax` κ) vs. baseline vs. reverse-attentional control (`belief_argmin` κ) across 6 easy-tier layouts × 8 seeds |
 | `random-kappa` | `belief_argmax` vs. uniform-random κ selection vs. baseline — isolates the benefit of belief-driven selection |
 | `nonstat` | Same agent comparison under non-stationary food↔poison mutation (`mutation_prob=0.05`), testing whether learned attention remains adaptive |
+
+## Supplementary material
+
+The standalone [SAB 2026 supplementary material](paper/SAB2026_supplement.pdf)
+contains Sections A--E that were not part of the 12-page camera-ready
+proceedings paper. The accepted manuscript itself is not distributed from this
+repository.
 
 ---
 
@@ -195,10 +204,14 @@ python rerun_sweep.py --claim headline --seeds 8 --episodes 16 --out results/hea
 │       ├── pymdp_integration.py              pymdp compatibility shims
 │       └── public_surface.py                 Agent metadata and label maps
 │
-└── configs/
-    ├── known_model_layout_bank.json           12 layouts across easy/medium/far tiers
-    ├── known_model_layout_bank_extended.json  Extended layout bank (Appendix)
-    └── actinf_learning_fixed_layout_nosleep.json  Canonical experiment configuration
+├── configs/
+│   ├── known_model_layout_bank.json           12 layouts across easy/medium/far tiers
+│   ├── known_model_layout_bank_extended.json  Extended layout bank (Appendix)
+│   └── actinf_learning_fixed_layout_nosleep.json  Canonical experiment configuration
+│
+└── paper/
+    ├── SAB2026_supplement.pdf                  Supplementary Sections A--E
+    └── README.md                               Paper-material licence scope
 ```
 
 ---
@@ -448,4 +461,7 @@ meaningful survival statistics.
 
 ## Licence
 
-See `LICENSE`.
+The MIT licence in `LICENSE` applies to the software and its documentation. It
+does not apply to the paper PDF, text, or figures under `paper/`; those materials
+remain subject to their own publication and copyright terms. See
+[`paper/README.md`](paper/README.md).
