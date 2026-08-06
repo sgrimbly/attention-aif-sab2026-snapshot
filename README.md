@@ -39,7 +39,7 @@ Three experimental claims are made reproducible here:
 |---|---|
 | `headline` | Attentional agent (`belief_argmax` κ) vs. baseline vs. reverse-attentional control (`belief_argmin` κ) across 6 easy-tier layouts × 8 seeds |
 | `random-kappa` | `belief_argmax` vs. uniform-random κ selection vs. baseline — isolates the benefit of belief-driven selection |
-| `nonstat` | Same agent comparison under non-stationary food↔poison mutation (`mutation_prob=0.05`), testing whether learned attention remains adaptive |
+| `nonstat` | Same agent comparison under non-stationary food→poison mutation (`mutation_prob=0.05`), testing whether learned attention remains adaptive |
 
 ## Supplementary material
 
@@ -251,12 +251,14 @@ Interoceptive observations are sampled with precision determined by the active
 `intero_budget_bg_floor=0.05`), so attending one channel raises its precision
 while reducing the others proportionally.
 
-### Seasonal non-stationarity (`nonstat` claim)
+### Food-to-poison non-stationarity (`nonstat` claim)
 
 The `nonstat` experiment enables `mutation_enabled=True` with
-`mutation_prob=0.05`. At each step there is a 5 % chance that any FOOD tile
-flips to POISON (and back). The agent must continuously update its resource
-model rather than exploiting a fixed layout.
+`mutation_prob=0.05`. On each step that the agent enters a FOOD destination
+cell, there is a 5 % chance that the tile turns to POISON in place before its
+effect is applied. The tile stays poisoned for the rest of that trial and the
+layout resets between trials. The agent must therefore keep updating its
+resource model rather than exploiting a fixed layout.
 
 ---
 
