@@ -26,6 +26,7 @@ import json
 import sys
 import time
 from pathlib import Path
+from typing import Any
 
 _ROOT = Path(__file__).resolve().parent
 if str(_ROOT) not in sys.path:
@@ -72,6 +73,23 @@ def _env_extra_kwargs(claim: str) -> dict:
     if claim == "nonstat":
         return {"mutation_enabled": True, "mutation_prob": 0.05}
     return {}
+
+
+def _run_episodes_with_fresh_resource_map(
+    *,
+    sim: Any,
+    env: Any,
+    base_res_map: Any,
+    n_episodes: int,
+    start_pos: int,
+) -> int:
+    """Run episodes while restoring the layout before every trial."""
+    survived = 0
+    for _ in range(n_episodes):
+        env.res_map[:] = base_res_map
+        if sim.run_episode(start_pos=start_pos).terminated_by == "timeout":
+            survived += 1
+    return survived
 
 
 # ── main sweep ────────────────────────────────────────────────────────────
@@ -182,6 +200,7 @@ def run_sweep(
                     sleep_positions=layout.get("sleep_positions", []),
                     start_pos=layout["start_pos"],
                 )
+                base_res_map = np.array(env.res_map, copy=True)
                 body = BodyProcess(config=BODY_CFG)
                 np.random.seed(seed)   # reproducible body interoception
 
@@ -191,9 +210,12 @@ def run_sweep(
                 # Episodes must start at the layout's fixed start_pos; otherwise
                 # env.reset(pos=None) samples a uniformly random cell, dropping the
                 # agent away from the resource cluster (→ spurious 0 survival).
-                survived = sum(
-                    1 for _ in range(n_episodes)
-                    if sim.run_episode(start_pos=layout["start_pos"]).terminated_by == "timeout"
+                survived = _run_episodes_with_fresh_resource_map(
+                    sim=sim,
+                    env=env,
+                    base_res_map=base_res_map,
+                    n_episodes=n_episodes,
+                    start_pos=layout["start_pos"],
                 )
                 sr = survived / n_episodes
                 seed_survivals.append(sr)

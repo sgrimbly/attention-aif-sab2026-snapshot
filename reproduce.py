@@ -73,17 +73,50 @@ def run_test() -> None:
     Expected wall time: ~30 s on a modern CPU.
     """
     try:
+        import numpy as np
+
         from aif_paper1.affectworld.affect_world_env import AffectWorldEnv
         from aif_paper1.affectworld.body import BodyProcess
+        from aif_paper1.affectworld.helpers import Resource
         from aif_paper1.affectworld.simulation import Simulation
         from aif_paper1.agents.standard_active_inference import Agent as BaselineAgent
         from aif_paper1.agents.likelihood_precision_selective_attention import ExternalKappaAgent
+        from rerun_sweep import _run_episodes_with_fresh_resource_map
     except ImportError as e:
         print(f"[test] Import failed: {e}")
         print("       Ensure you have run: pip install -e .")
         sys.exit(1)
 
     print("[test] Imports OK.")
+
+    class _MutatingSimulation:
+        def __init__(self, env: AffectWorldEnv) -> None:
+            self.env = env
+            self.starts: list[np.ndarray] = []
+
+        def run_episode(self, *, start_pos: int):
+            del start_pos
+            self.starts.append(np.array(self.env.res_map, copy=True))
+            self.env.res_map[0, 0] = Resource.POISON
+            return type("Episode", (), {"terminated_by": "timeout"})()
+
+    reset_env = AffectWorldEnv(width=2, height=2, seed=0)
+    reset_env.res_map[:] = Resource.AIR
+    reset_env.res_map[0, 0] = Resource.FOOD
+    base_res_map = np.array(reset_env.res_map, copy=True)
+    reset_sim = _MutatingSimulation(reset_env)
+    reset_survivals = _run_episodes_with_fresh_resource_map(
+        sim=reset_sim,
+        env=reset_env,
+        base_res_map=base_res_map,
+        n_episodes=3,
+        start_pos=0,
+    )
+    if reset_survivals != 3 or any(
+        not np.array_equal(start, base_res_map) for start in reset_sim.starts
+    ):
+        raise AssertionError("resource-map mutation leaked across trial boundaries")
+    print("[test] Non-stationarity layout reset OK.")
 
     # Core Paper 1 kwargs — planner, learning mode, and habit flags match
     # actinf_learning_fixed_layout_nosleep.json exactly.  planning_horizon is
