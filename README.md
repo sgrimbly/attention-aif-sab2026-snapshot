@@ -48,6 +48,11 @@ contains Sections A--E that were not part of the 12-page camera-ready
 proceedings paper. The accepted manuscript itself is not distributed from this
 repository.
 
+A few statements in the 12-page paper do not match the runs as configured
+here, including the planner objective and the policy precision γ. The
+[paper page](https://stjohngrimbly.com/sab2026/) lists these as short notes.
+Section A of the supplement gives the as-run planner settings.
+
 ---
 
 ## Requirements
